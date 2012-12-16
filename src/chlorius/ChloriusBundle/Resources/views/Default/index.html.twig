@@ -1,0 +1,41 @@
+{% extends 'ChloriusBundle::base.html.twig' %}
+
+{% block smallTitle %}{{ title }}{% endblock %}
+
+{% block header %}
+    <header class="clearfix">
+
+        <h1>{{ title }}<span>{{ description }}</span></h1>
+
+        <div class="support-note">
+            <span class="note-ie">Sorry, only modern browsers.</span>
+        </div>
+
+    </header>
+{% endblock %}
+
+{% block content %}
+    <ul class="gamma-gallery">
+
+        {% for photo in photos %}
+            {% set photo = albumsDir ~ photo.fileName %}
+            <li id="img{{ loop.index }}">
+                <div data-alt="img{{ loop.index }}" data-description="<h3>Sky high</h3>" data-max-width="1800" data-max-height="1350">
+                    <div data-src="{{ photo | imagine_filter('xxxlarge') }}" data-min-width="1300"></div>
+                    <div data-src="{{ photo | imagine_filter('xxlarge') }}" data-min-width="1000"></div>
+                    <div data-src="{{ photo | imagine_filter('xlarge') }}" data-min-width="700"></div>
+                    <div data-src="{{ photo | imagine_filter('large') }}" data-min-width="300"></div>
+                    <div data-src="{{ photo | imagine_filter('medium') }}" data-min-width="200"></div>
+                    <div data-src="{{ photo | imagine_filter('small') }}" data-min-width="140"></div>
+                    <div data-src="{{ photo | imagine_filter('xsmall') }}"></div>
+                    <noscript>
+                        <img src="{{ photo | imagine_filter('xsmall') }}" alt="img{{ loop.index }}"/>
+                    </noscript>
+                </div>
+            </li>
+
+        {% endfor %}
+    </ul>
+
+    <div class="gamma-overlay"></div>
+{% endblock %}

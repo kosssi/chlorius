@@ -9,6 +9,7 @@ cache/*
 */cache/*
 web/uploads/*
 web/bundles/*
+web/media/*
 
 # Configuration files
 app/config/parameters.ini

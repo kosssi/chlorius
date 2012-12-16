@@ -1,0 +1,7 @@
+services:
+
+    chlorius.helper:
+        class: chlorius\ChloriusBundle\Helper\ChloriusHelper
+        arguments:
+            - %chlorius.albums_dir%
+            - @liip_imagine
