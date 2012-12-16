@@ -3,7 +3,9 @@ app/bootstrap*
 
 # Symfony directories
 vendor/*
+log/*
 */logs/*
+cache/*
 */cache/*
 web/uploads/*
 web/bundles/*
@@ -11,3 +13,7 @@ web/bundles/*
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
+
+# phar
+composer.phar
+symfttpd.phar
