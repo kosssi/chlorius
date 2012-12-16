@@ -11,28 +11,44 @@ class ChloriusHelper
     /** @var \Imagine\Gd\Imagine */
     private $imagine;
 
+    /**
+     * @param $photoAlbumsDir
+     * @param $imagine
+     */
     function __construct($photoAlbumsDir, $imagine)
     {
         $this->photoAlbumsDir = $photoAlbumsDir;
         $this->imagine = $imagine;
     }
 
+    /**
+     * @param $dir
+     * @return null|\Symfony\Component\Finder\Finder
+     */
     public function getAlbums($dir)
     {
-        $finder = new Finder();
+        if ($this->directoryExist($dir)) {
+            $finder = new Finder();
 
-        return $finder->directories()->in($dir)->sortByName();
+            return $finder->directories()->in($dir)->depth(0)->sortByName();
+        }
+
+        return null;
     }
 
+    /**
+     * @param $dir
+     * @return null|\Symfony\Component\Finder\Finder
+     */
     public function getPhotos($dir)
     {
         if ($this->directoryExist($dir)) {
             $finder = new Finder();
 
-            return $finder->files()->in($dir)->sortByName();
+            return $finder->files('*.(jpeg|jpg|png)')->in($dir)->depth(0)->sortByName();
         }
 
-        return false;
+        return null;
     }
 
     public function fixOrientationAlbum($dir)
