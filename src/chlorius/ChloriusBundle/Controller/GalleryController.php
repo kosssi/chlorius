@@ -10,15 +10,28 @@ use Symfony\Component\Finder\Finder;
 /**
  * @Route("/gallery")
  */
-class DefaultController extends Controller
+class GalleryController extends Controller
 {
     /**
-     * @Route("{path}", requirements={"path" = ".*"}, defaults={"path" = ""})
+     * @Route("/fix-orientation{path}", requirements={"path" = ".*"}, defaults={"path" = ""}, name="chlorius_fix_orientation")
+     */
+    public function fixOrientationAction($path = "")
+    {
+        /** @var $chloriusHelper \chlorius\ChloriusBundle\Helper\ChloriusHelper */
+        $chloriusHelper = $this->get('chlorius.helper');
+        $dir = $chloriusHelper->photoAlbumsDir . $path;
+        $countPhotosModified = $chloriusHelper->fixOrientationAlbum($dir);
+
+        return $this->redirect($this->generateUrl('chlorius_gallery'));
+    }
+
+    /**
+     * @Route("{path}", requirements={"path" = ".*"}, defaults={"path" = ""}, name="chlorius_gallery")
      * @Template()
      */
     public function indexAction($path = "")
     {
-        /** @var $chloriusHelper \kosssi\GammaGalleryBundle\Helper\ChloriusHelper */
+        /** @var $chloriusHelper \chlorius\ChloriusBundle\Helper\ChloriusHelper */
         $chloriusHelper = $this->get('chlorius.helper');
         $dir = $chloriusHelper->photoAlbumsDir . $path;
         //$chloriusHelper->fixOrientationAlbum($dir);
@@ -38,19 +51,5 @@ class DefaultController extends Controller
     public function uploadAction()
     {
 
-    }
-
-    /**
-     * @Route("/fix-orientation")
-     * @Template()
-     */
-    public function fixOrientationAction()
-    {
-        /** @var $chloriusHelper \kosssi\GammaGalleryBundle\Helper\ChloriusHelper */
-        $chloriusHelper = $this->get('chlorius.helper');
-
-        $countPhotosModified = $chloriusHelper->fixOrientationAlbum($chloriusHelper->photoAlbumsDir);
-
-        return array('countPhotosModified' => $countPhotosModified);
     }
 }
