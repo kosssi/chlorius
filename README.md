@@ -13,7 +13,6 @@ En cours de développement...
     cd chlorius
     cp app/config/parameters.yml.dist app/config/parameters.yml
     curl -s http://getcomposer.org/installer | php
-    php composer.phar update friendsofsymfony/user-bundle
     php composer.phar install
 
 # Technique

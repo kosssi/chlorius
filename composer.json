@@ -1,6 +1,6 @@
 {
-    "name": "kosssi/sym-photo-albums",
-    "description": "A simple photo albums.",
+    "name": "chlorius/chlorius",
+    "description": "A simple picture gallery",
     "autoload": {
         "psr-0": { "": "src/" }
     },
