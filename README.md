@@ -11,9 +11,14 @@ En cours de développement...
 
     git clone https://github.com/chlorius/chlorius.git
     cd chlorius
+    # config
     cp app/config/parameters.yml.dist app/config/parameters.yml
+    # composer
     curl -s http://getcomposer.org/installer | php
     php composer.phar install
+    # database
+    php app/console doctrine:database:create
+    php app/console doctrine:schema:create
 
 # Technique
 
