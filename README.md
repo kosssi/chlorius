@@ -1,4 +1,4 @@
-chlorius
+chlorius [![Build Status](https://secure.travis-ci.org/chlorius/chlorius.png?branch=master)](http://travis-ci.org/chlorius/chlorius)
 ========
 
 Une gallery photo simple d'utilisation.
