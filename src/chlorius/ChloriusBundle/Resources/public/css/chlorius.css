@@ -1,0 +1,67 @@
+body {
+    background: white url(../images/bg.jpg) repeat center center;
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.popin {
+    width: 400px;
+    height: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+
+.login {
+    background-color: white;
+    border-radius: 100px;
+    box-shadow: 1px 1px 12px #555;
+    text-align: center;
+}
+
+.login form {
+    margin-top: 35px;
+}
+
+.login li {
+    list-style-type: none;
+}
+
+.login input[type=text], .login input[type=password] {
+    border: 1px solid #D9E1E7;
+    color: #54555A;
+    width: 260px;
+    padding: 10px 10px 10px 32px;
+    margin: 10px;
+    outline: medium none;
+    transition-duration: 0.25s;
+    border-radius: 5px;
+    background-color: #eeeeee;
+}
+
+.login input[type=password] {
+    width: 232px;
+    margin-right: 0;
+    border-radius: 5px 0 0 5px;
+    border-right-width: 0;
+}
+
+.login input[type=submit] {
+    width: 30px;
+    margin: 10px 10px 10px 0;
+    background-color: #6AC13D;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #D9E1E7;
+    border-left-width: 0;
+    height: 40px;
+}
+
+.forgetPass {
+    font-size: 11px;
+}
