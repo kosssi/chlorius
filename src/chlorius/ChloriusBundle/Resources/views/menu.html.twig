@@ -1,16 +1,14 @@
-<div class="codrops-top clearfix">
-    <a href="http://tympanus.net/Tutorials/HeadingSets/">
-        <strong>&laquo; Previous Demo: </strong>Heading Set Styling
-    </a>
-    <span class="right">
+<header class="clearfix">
+    {% block leftLink %}
+    {% endblock %}
+    <span class="floatR ">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <a class="account" href="">{{ app.user.username }}</a>
+            <a class="account" href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>
             <a href="{{ path('fos_user_security_logout') }}">{{ 'Logout'|trans }}</a>
         {% else %}
             <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
         {% endif %}
-        <a href="http://tympanus.net/codrops/?p=11836">
-            <strong>Back to the Codrops Article &raquo;</strong>
-        </a>
+        {% block rightLink %}
+        {% endblock %}
     </span>
-</div>
+</header>

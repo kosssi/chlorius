@@ -19,6 +19,8 @@ En cours de développement...
     # database
     php app/console doctrine:database:create
     php app/console doctrine:schema:create
+    php app/console doctrine:database:create --env test
+    php app/console doctrine:schema:create --env test
 
 # Technique
 

@@ -26,7 +26,7 @@ class GalleryController extends Controller
     }
 
     /**
-     * @Route("{path}", requirements={"path" = ".*"}, defaults={"path" = ""}, name="chlorius_gallery")
+     * @Route("/{path}", requirements={"path" = ".*"}, defaults={"path" = ""}, name="chlorius_gallery_index")
      * @Template()
      */
     public function indexAction($path = "")
@@ -46,10 +46,5 @@ class GalleryController extends Controller
             'title' => $title,
             'description' => $description
         );
-    }
-
-    public function uploadAction()
-    {
-
     }
 }

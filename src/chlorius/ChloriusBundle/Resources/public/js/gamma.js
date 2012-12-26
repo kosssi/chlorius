@@ -556,6 +556,20 @@ var Gamma = (function() {
                     Gamma.settings.circular ? Gamma.itemsCount - 1 : Gamma.current;
 
             }
+            else if( dir === 'esc' ) {
+
+                _closesingleview();
+
+            }
+            else if( dir === 'space' ) {
+
+                if (Gamma.isAnimating) {
+                    _stopSlideshow();
+                } else {
+                    _startSlideshow();
+                }
+
+            }
 
             if( current === Gamma.current ) {
 
@@ -1266,6 +1280,8 @@ var Gamma = (function() {
 
                             var keyCode = event.keyCode || event.which,
                                 arrow = {
+                                    esc: 27,
+                                    space: 18,
                                     left: 37,
                                     up: 38,
                                     right: 39,
@@ -1282,6 +1298,16 @@ var Gamma = (function() {
                                 case arrow.right :
 
                                     _onnavigate( 'next' );
+                                    break;
+
+                                case arrow.esc :
+
+                                    _onnavigate( 'esc' );
+                                    break;
+
+                                case arrow.space :
+
+                                    _onnavigate( 'space' );
                                     break;
 
                             }

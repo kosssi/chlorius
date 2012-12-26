@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}{% block smallTitle %}Welcome!{% endblock %} - chlorius{% endblock %}
+{% block title %}{% block smallTitle %}Welcome!{% endblock %} - Chlorius{% endblock %}
 
 {% block stylesheets %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -30,6 +30,13 @@
         </div>
     </div>
 </div>
+<footer>
+    {% block footer %}
+        {% for message in app.session.flashbag.get('fos_user_success') %}
+            <p class="valid">{{ message }}<span onclick="$(this).parent().remove()">X</span></p>
+        {% endfor %}
+    {% endblock %}
+</footer>
 {% endblock %}
 
 {% block javascripts %}
