@@ -18,17 +18,7 @@
 {% block body %}
 <div class="container">
     {% block topBar %}
-        <div class="codrops-top clearfix">
-            <a href="http://tympanus.net/Tutorials/HeadingSets/">
-                <strong>&laquo; Previous Demo: </strong>Heading Set Styling
-            </a>
-                <span class="right">
-                	<a href="http://www.idleformat.com/">Images by Idleformat</a>
-                    <a href="http://tympanus.net/codrops/?p=11836">
-                        <strong>Back to the Codrops Article &raquo;</strong>
-                    </a>
-                </span>
-        </div>
+        {% include "ChloriusBundle::menu.html.twig" %}
     {% endblock %}
     <div class="main">
         {% block header %}

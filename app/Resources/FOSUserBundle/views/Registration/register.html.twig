@@ -1,0 +1,40 @@
+{% extends 'ChloriusBundle::base.html.twig' %}
+
+{% block body %}
+    <section class="registration popin">
+        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+            {% spaceless %}
+                <ul class="listFields">
+                    <li>
+                        <input name="fos_user_registration_form[username]" id="username"
+                               type="text" pattern=".{2,}" maxlength="255" required="required"
+                               value="" placeholder="{{ 'Your username'|trans }}" />
+                    </li>
+                    <li>
+                        <input name="fos_user_registration_form[email]" id="email"
+                               type="email" required="required"
+                               value="" placeholder="{{ 'Your email'|trans }}" />
+                    </li>
+                    <li>
+                        <input name="fos_user_registration_form[plainPassword][first]" id="password1"
+                               type="password" required="required"
+                               value="" placeholder="{{ 'Your password'|trans }}" />
+                    </li>
+                    <li>
+                        <input name="fos_user_registration_form[plainPassword][second]" id="password2"
+                               type="password" required="required"
+                               value="" placeholder="{{ 'Confirm your password'|trans }}" />
+                    </li>
+                    <li class="button">
+                        <p class="smallText">
+                            <a class="showPopin" href="{{ path('fos_user_security_login') }}">
+                                {{ 'Already sign up ?'|trans }}
+                            </a>
+                        </p>
+                        <input type="submit" value="{{ 'Sign up'|trans }}">
+                    </li>
+                </ul>
+            {% endspaceless %}
+        </form>
+    </section>
+{% endblock %}
