@@ -31,7 +31,7 @@
                         {% set password = form.children['current_password'].vars %}
                         <input name="{{ password.full_name }}" id="password"
                                type="password" required="required"
-                               value="{{ password.data }}" placeholder="{{ 'Your password'|trans }}"
+                               value="{{ password.data }}" placeholder="{{ 'Your current password'|trans }}"
                                class="small{% if password.errors|length > 0 %} error"
                                title="{{ password.errors[0].messageTemplate }}{% endif %}" />
                         <input class="small" type="submit" value="{{ '>'|trans }}">

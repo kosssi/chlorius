@@ -51,7 +51,7 @@ class GalleryControllerTest extends WebTestCase
         $accountLink = $crawler->filter('a.account:contains("demo")')->link();
         $client->click($accountLink);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertEquals('/account', $client->getRequest()->getRequestUri());
+        $this->assertEquals('/profile/', $client->getRequest()->getRequestUri());
     }
 
 }
