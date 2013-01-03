@@ -1,5 +1,7 @@
 {% extends 'ChloriusBundle::base.html.twig' %}
 
+{% block smallTitle %}{{ 'Registration'|trans }}{% endblock %}
+
 {% block body %}
     <section class="registration popin">
         <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
@@ -47,9 +49,9 @@
                     </li>
                     <li class="button">
                         <p class="twoColumn smallText">
-                            <a class="showPopin" href="{{ path('fos_user_security_login') }}">
+                            <a class="showPopin" href="{{ path('fos_user_security_login') }}">{% spaceless %}
                                 {{ 'Already sign up ?'|trans }}
-                            </a>
+                            {% endspaceless %}</a>
                         </p>
                         <input type="submit" value="{{ 'Sign up'|trans }}">
                     </li>

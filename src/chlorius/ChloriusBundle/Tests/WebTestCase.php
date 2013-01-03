@@ -43,9 +43,21 @@ class WebTestCase extends BaseWebTestCase
         return self::$application;
     }
 
-    protected static function loadUser()
+    protected static function executeSQL()
     {
         self::runCommand('propel:fixtures:load @NosBelIdeesUserBundle --yml');
+    }
+
+    protected static function loadUser()
+    {
+        //DELETE FROM fos_user;
+        // php app/console doctrine:schema:drop
+        // php app/console doctrine:schema:create
+        // php app/console doctrine:fixtures:load --fixtures src/chlorius/ChloriusBundle/DataFixtures/ORM/ --append --purge-with-truncate
+
+        self::runCommand('doctrine:schema:drop --force');
+        self::runCommand('doctrine:schema:create');
+        self::runCommand('doctrine:fixtures:load --append --fixtures src/chlorius/ChloriusBundle/DataFixtures/ORM/');
     }
 
     protected static function loadVoucher()
@@ -147,5 +159,18 @@ class WebTestCase extends BaseWebTestCase
         // img
         // $this->assertCount(0, $crawler->filter('img[alt=""]'));
         $this->assertCount(0, $crawler->filter('img:not([alt])'));
+    }
+
+    protected function assertLink($client, $link, $statusCode, $url)
+    {
+        $this->assertGreaterThan(0, count($link));
+        $client->click($link->link());
+        $this->assertUrl($url, $client, $statusCode);
+    }
+
+    protected function assertUrl($url, $client, $statusCode = 200)
+    {
+        $this->assertStatusCode($statusCode, $client);
+        $this->assertEquals($url, $client->getRequest()->getRequestUri());
     }
 }
