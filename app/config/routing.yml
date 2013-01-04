@@ -29,13 +29,6 @@ _imagine:
     resource: .
     type:     imagine
 
-root:
-    pattern: /
-    defaults:
-        _controller: ChloriusBundle:Gallery:index
-        path: /gallery
-        permanent: true
-
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
