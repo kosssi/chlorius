@@ -74,5 +74,24 @@ class LoginPageTest extends WebTestCase
         $this->assertUrl('/', $client, 302);
         $client->followRedirect();
         $this->assertUrl('/gallery', $client);
+
+        return $client;
+    }
+
+    /**
+     * @param $client \Symfony\Bundle\FrameworkBundle\Client
+     *
+     * @depends testLoginFormValid
+     */
+    public function testLogout($client)
+    {
+        $link = $client->getCrawler()->filter('a:contains("Logout")');
+        $this->assertCount(1, $link);
+        $client->click($link->link());
+        $this->assertUrl('/logout', $client, 302);
+        $client->followRedirect();
+        $this->assertUrl('/', $client, 302);
+        $client->followRedirect();
+        $this->assertUrl('/login', $client);
     }
 }

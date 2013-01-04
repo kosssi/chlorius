@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class WebTestCase extends BaseWebTestCase
 {
+    const USER_LOGIN = 'demo';
     const USER_EMAIL = 'demo@example.org';
     const USER_PASS = 'demodemo';
     const ADMIN_EMAIL = 'admin@example.org';

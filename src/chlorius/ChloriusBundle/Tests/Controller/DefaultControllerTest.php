@@ -19,6 +19,6 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
         $client->followRedirect();
-        $this->assertEquals('/gallery', $client->getRequest()->getRequestUri());
+        $this->assertEquals('/login', $client->getRequest()->getRequestUri());
     }
 }
