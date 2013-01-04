@@ -8,35 +8,22 @@
     <meta name="description" content="Gamma Gallery - A Responsive Image Gallery Experiment"/>
     <meta name="keywords" content="html5, responsive, image gallery, masonry, picture, images, sizes, fluid, history api, visibility api"/>
     <meta name="author" content="Codrops"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/chlorius/css/style.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/chlorius/css/chlorius.css') }}"/>
-    <script src="{{ asset('bundles/chlorius/js/modernizr.custom.70736.js') }}"></script>
-    <noscript><link rel="stylesheet" type="text/css" href="{{ asset('bundles/chlorius/css/noJS.css') }}"/></noscript>
-    <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/chlorius/css/chlorius2.css') }}"/>
 {% endblock %}
 
 {% block body %}
-<div class="container">
     {% block topBar %}
-        {% include "ChloriusBundle::menu.html.twig" %}
+        {% if is_granted('ROLE_USER') %}
+            {% include "ChloriusBundle::header.html.twig" %}
+        {% endif %}
     {% endblock %}
-    <div class="main">
-        {% block header %}
+    <footer>
+        {% block footer %}
+            {% for message in app.session.flashbag.get('fos_user_success') %}
+                <p class="valid">{{ message }}<span onclick="$(this).parent().remove()">X</span></p>
+            {% endfor %}
         {% endblock %}
-
-        <div class="gamma-container gamma-loading" id="gamma-container">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </div>
-</div>
-<footer>
-    {% block footer %}
-        {% for message in app.session.flashbag.get('fos_user_success') %}
-            <p class="valid">{{ message }}<span onclick="$(this).parent().remove()">X</span></p>
-        {% endfor %}
-    {% endblock %}
-</footer>
+    </footer>
 {% endblock %}
 
 {% block javascripts %}

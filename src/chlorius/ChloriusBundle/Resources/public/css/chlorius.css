@@ -1,6 +1,6 @@
-::-webkit-input-placeholder { color:#aaaaaa!important; font-style: italic; }
-::-moz-placeholder { color:#aaaaaa!important; font-style: italic; } /* firefox 19+ */
-input:-moz-placeholder { color:#aaaaaa!important; font-style: italic; }
+::-webkit-input-placeholder { color:#aaaaaa; font-style: italic; }
+::-moz-placeholder { color:#aaaaaa; font-style: italic; } /* firefox 19+ */
+input:-moz-placeholder { color:#aaaaaa; font-style: italic; }
 
 button::-moz-focus-inner, input[type=submit]::-moz-focus-inner {
     border:0;

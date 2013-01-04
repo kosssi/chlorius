@@ -35,6 +35,8 @@ Il est basé sur les projets suivants :
 * [Gamma Gallery][8] from Codrops by Mary Lou
 * [Slicebox][9] from Codrops by Pedro Botelho
 * [Fine uploader][10]
+* [The Entypo Pictogram Suite][11]
+* [h5ai][12]
 
 [1]: https://github.com/avalanche123/Imagine
 [2]: https://github.com/avalanche123/AvalancheImagineBundle
@@ -46,3 +48,5 @@ Il est basé sur les projets suivants :
 [8]: http://tympanus.net/codrops/2012/11/06/gamma-gallery-a-responsive-image-gallery-experiment/
 [9]: http://tympanus.net/codrops/2012/10/22/slicebox-revised/
 [10]: http://fineuploader.com/
+[11]: http://www.entypo.com/
+[12]: http://larsjung.de/h5ai/sample/
