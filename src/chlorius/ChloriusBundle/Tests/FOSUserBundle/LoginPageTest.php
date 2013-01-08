@@ -73,7 +73,7 @@ class LoginPageTest extends WebTestCase
         $client->followRedirect();
         $this->assertUrl('/', $client, 302);
         $client->followRedirect();
-        $this->assertUrl('/gallery', $client);
+        $this->assertUrl('/a/demo', $client);
 
         return $client;
     }
