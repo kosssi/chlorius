@@ -25,6 +25,7 @@ class AlbumController extends Controller
      */
     public function indexAction(User $user)
     {
+
         return array('username' => $user->getUsername(), 'albums' => $user->getAlbums());
     }
 
@@ -49,6 +50,10 @@ class AlbumController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($album);
                 $em->flush();
+
+                /** @var $chloriusHelper \chlorius\ChloriusBundle\Helper\ChloriusHelper */
+                $chloriusHelper = $this->get('chlorius.helper');
+                $chloriusHelper->createAlbumFolder($user, $album);
 
                 $this->get('session')->setFlash('success', 'L\'album a été correctement crée.');
 
@@ -80,11 +85,33 @@ class AlbumController extends Controller
             $em->remove($album);
             $em->flush();
 
-            $this->get('session')->setFlash('album', 'L\'album a été correctement supprimé.');
+            $this->get('session')->setFlash('success', 'L\'album a été correctement supprimé.');
         } else {
-            $this->get('session')->setFlash('album', 'No album found for id ' . $albumId);
+            $this->get('session')->setFlash('error', 'No album found for id ' . $albumId);
         }
 
         return $this->redirect($this->generateUrl('chlorius_album_index', array('username' => $user->getUsername())));
+    }
+
+    /**
+     * @Secure(roles="ROLE_USER")
+     * @Route("/{albumId}/{albumName}", name="chlorius_album_show")
+     * @ParamConverter("album", class="ChloriusBundle:Album", options={"id" = "albumId", "name" = "albumName"})
+     * @Template()
+     */
+    public function showAction(User $user, Album $album)
+    {
+        /** @var $chloriusHelper \chlorius\ChloriusBundle\Helper\ChloriusHelper */
+        $chloriusHelper = $this->get('chlorius.helper');
+        $albumDir = $chloriusHelper->getAlbumDirectory($user, $album);
+        $photos = $chloriusHelper->getPhotos($albumDir);
+        $albumDir = strstr($albumDir, 'albums/');
+
+        return array(
+            'username' => $user->getUsername(),
+            'album' => $album,
+            'photos' => $photos,
+            'albumDir' => $albumDir
+        );
     }
 }

@@ -1,10 +1,29 @@
 {% spaceless %}
-<header id="topBar" class="clearfix">
-    <span class="left"><a>left</a></span>
+    <header id="topBar" class="clearfix">
+    <span class="left">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="{{ path('chlorius_album_index', {'username': username}) }}"
+               class="iAlbum{% if app.request.get('_route') == 'chlorius_album_index' %} selected{% endif %}"
+                    >{{ username }} albums</a>
+            {% if app.request.get('_route') == 'chlorius_album_show' %}
+                <a href="{{ path('chlorius_album_show', {'username': username, 'albumId': album.id, 'albumName': album.name}) }}"
+                   class="iAlbum selected"
+                        >{{ album.name }}</a>
+            {% endif %}
+        {% endif %}
+    </span>
     <span class="right">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <a class="account" href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>
-            <a href="{{ path('fos_user_security_logout') }}">{{ 'Logout'|trans }}</a>
+
+            <a href="{{ path('chlorius_album_new', {'username': app.user.username }) }}"
+               class="iAlbum{% if app.request.get('_route') == 'chlorius_album_new' %} selected{% endif %}"
+                    >{{ 'New album'|trans }}</a>
+
+            <a href="{{ path('fos_user_profile_show') }}"
+               class="iAccount{% if app.request.get('_route') == 'fos_user_profile_show' %} selected{% endif %}"
+                    >{{ app.user.username }}</a>
+
+            <a href="{{ path('fos_user_security_logout') }}" class="iLogout">{{ 'Logout'|trans }}</a>
         {% else %}
             <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
         {% endif %}
@@ -13,7 +32,6 @@
     </span>
     <span class="center">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <a href="{{ path('chlorius_album_new', {'username': username}) }}">{{ 'New album'|trans }}</a>
         {% endif %}
-</header>
+    </header>
 {% endspaceless %}

@@ -1,22 +1,24 @@
 {% extends 'ChloriusBundle::chloriusBase.html.twig' %}
 
-{% block smallTitle %}{{ 'Album'|trans }}{% endblock %}
+{% block smallTitle %}{{ 'My album'|trans }}{% endblock %}
 
 {% block main %}
-    <h1>Albums</h1>
+    <h1>My albums</h1>
 
     <ul>
         {% for album in albums %}
             <li>
-                {{ album.name }}
+                <a href="{{ path('chlorius_album_show', {'username': username, 'albumId': album.id, 'albumName': album.name}) }}">{{ album.name }}</a>
                 <span>( {{ album.date|date("d/m/Y") }} )</span>
-                <a href="{{ path('chlorius_album_remove', {'username': username, 'albumId': album.id}) }}">Delete</a>
+                {% if app.user.username == username %}
+                    <a href="{{ path('chlorius_album_remove', {'username': username, 'albumId': album.id}) }}">Delete</a>
+                {% endif %}
             </li>
         {% else %}
             <p class="empty">no albums</p>
         {% endfor %}
     </ul>
-    {% for message in app.session.flashbag.get('album') %}
+    {% for message in app.session.flashbag.get('success') %}
         <p class="valid">{{ message }}<span onclick="$(this).parent().remove()">X</span></p>
     {% endfor %}
 {% endblock %}

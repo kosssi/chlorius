@@ -1,0 +1,14 @@
+{% extends 'ChloriusBundle::chloriusBase.html.twig' %}
+
+{% block smallTitle %}{{ album.name }}{% endblock %}
+
+{% block main %}
+    <h1>{{ album.name }}</h1>
+    <p>{{ album.description }}</p>
+
+    <ul>
+        {% for photo in photos %}
+            <li><img src="/{{ albumDir }}/{{ photo.relativePathname }}"></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

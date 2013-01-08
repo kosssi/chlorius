@@ -2,6 +2,8 @@
 
 namespace chlorius\ChloriusBundle\Helper;
 
+use chlorius\ChloriusBundle\Entity\User;
+use chlorius\ChloriusBundle\Entity\Album;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -97,6 +99,19 @@ class ChloriusHelper
         }
 
         return $countPhotosModified;
+    }
+
+    public function createAlbumFolder(User $user, Album $album)
+    {
+        $fsm = new Filesystem();
+
+        $fsm->mkdir($this->photoAlbumsDir . '/' . $user->getUsername() . '/' . $album->getId());
+    }
+
+    public function getAlbumDirectory(User $user, Album $album)
+    {
+
+        return $this->photoAlbumsDir . '/' . $user->getUsername() . '/' . $album->getId();
     }
 
     private function rotate($photoPath)
