@@ -1,0 +1,19 @@
+{% spaceless %}
+<header id="topBar" class="clearfix">
+    <span class="left"><a>left</a></span>
+    <span class="right">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a class="account" href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a>
+            <a href="{{ path('fos_user_security_logout') }}">{{ 'Logout'|trans }}</a>
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        {% endif %}
+        {% block rightLink %}
+        {% endblock %}
+    </span>
+    <span class="center">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="{{ path('chlorius_album_new', {'username': username}) }}">{{ 'New album'|trans }}</a>
+        {% endif %}
+</header>
+{% endspaceless %}

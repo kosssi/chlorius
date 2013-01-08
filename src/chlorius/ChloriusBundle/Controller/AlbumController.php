@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/a/{username}")
- * @ParamConverter("user", class="ChloriusBundle:User")
+ * @ParamConverter("user", class="ChloriusBundle:User", options={"username" = "username"})
  */
 class AlbumController extends Controller
 {
@@ -68,13 +68,13 @@ class AlbumController extends Controller
 
     /**
      * @Secure(roles="ROLE_USER")
-     * @Route("/{id}/remove", name="chlorius_album_remove")
+     * @Route("/{albumId}/remove", name="chlorius_album_remove")
      * @Template()
      */
-    public function removeAction(User $user, $id)
+    public function removeAction(User $user, $albumId)
     {
         $em = $this->getDoctrine()->getManager();
-        $album = $em->getRepository('ChloriusBundle:Album')->find($id);
+        $album = $em->getRepository('ChloriusBundle:Album')->find($albumId);
 
         if ($album) {
             $em->remove($album);
@@ -82,7 +82,7 @@ class AlbumController extends Controller
 
             $this->get('session')->setFlash('album', 'L\'album a été correctement supprimé.');
         } else {
-            $this->get('session')->setFlash('album', 'No album found for id ' . $id);
+            $this->get('session')->setFlash('album', 'No album found for id ' . $albumId);
         }
 
         return $this->redirect($this->generateUrl('chlorius_album_index', array('username' => $user->getUsername())));
