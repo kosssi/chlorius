@@ -19,7 +19,16 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        /** @var $user \chlorius\ChloriusBundle\Entity\User */
+        $user = $this->get('security.context')->getToken()->getUser();
 
-        return $this->redirect($this->generateUrl('chlorius_gallery_index'));
+        return $this->redirect(
+            $this->generateUrl(
+                'chlorius_album_index',
+                array(
+                    'username' => $user->getUsername()
+                )
+            )
+        );
     }
 }

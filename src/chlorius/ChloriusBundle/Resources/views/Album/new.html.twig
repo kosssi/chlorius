@@ -1,0 +1,5 @@
+<form action="{{ path('chlorius_album_new', {'username': username}) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>

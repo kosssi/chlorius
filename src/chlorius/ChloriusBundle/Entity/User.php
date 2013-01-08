@@ -18,8 +18,58 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Album", mappedBy="user")
+     */
+    private $albums;
+
     public function __construct()
     {
         parent::__construct();
+
+        $this->albums = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Add albums
+     *
+     * @param \chlorius\ChloriusBundle\Entity\Album $albums
+     * @return User
+     */
+    public function addAlbum(\chlorius\ChloriusBundle\Entity\Album $albums)
+    {
+        $this->albums[] = $albums;
+    
+        return $this;
+    }
+
+    /**
+     * Remove albums
+     *
+     * @param \chlorius\ChloriusBundle\Entity\Album $albums
+     */
+    public function removeAlbum(\chlorius\ChloriusBundle\Entity\Album $albums)
+    {
+        $this->albums->removeElement($albums);
+    }
+
+    /**
+     * Get albums
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAlbums()
+    {
+        return $this->albums;
     }
 }
