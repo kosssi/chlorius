@@ -19,9 +19,12 @@
 
 
 {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/chlorius/css/chlorius2.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/chlorius/css/style.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/chlorius/css/demo.css') }}"/>
+    {% stylesheets
+    'bundles/chlorius/less/chlorius.less'
+    'bundles/chlorius/font/entypo.css'
+    %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+    {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}

@@ -1,0 +1,159 @@
+html, body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato',Calibri,Arial,sans-serif;
+  font-size: 1.1em;
+  background: white url(/bundles/chlorius/images/bg.jpg) repeat center center;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+}
+
+/*
+    ##########
+      HEADER
+    ##########
+*/
+
+/* TOPBAR */
+#header {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  min-height: 30px;
+  left: 0;
+  top: 0;
+  background-color: rgba(241, 241, 241, 0.6);
+  border-bottom: 1px solid #d2d2d2;
+  text-align: center;
+
+
+  ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: #555555;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    opacity: 0.7;
+    padding: 6px 10px 5px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out 0s;
+  }
+
+  a:hover, a.selected {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #ee8800;
+    opacity: 1;
+  }
+}
+
+a#login {
+  float: right;
+}
+
+/*
+    ##########
+      FOOTER
+    ##########
+*/
+
+#footer {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 18px;
+  left: 0;
+  bottom: 0;
+  padding: 6px 0 8px 0;
+  background-color: rgba(241, 241, 241, 0.6);
+  border-top: 1px solid #d2d2d2;
+  color: #999;
+  text-align: center;
+
+  a, a:active, a:visited {
+    color: #555;
+    text-decoration: none;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    opacity: 0.7;
+  }
+
+  a:hover, a:active:hover, a:visited:hover {
+    color:#e80;
+    opacity:1
+  }
+}
+
+#footer .left, #header .left {
+  position: absolute;
+  left: 0;
+  display: block;
+  padding: 0 8px;
+}
+
+#footer a, #header a {
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#footer .right a, #header .right a {
+  border-right: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#footer .center a:first-child, #header .center a:first-child {
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#footer .center, #header .center {
+  display: block;
+}
+
+#footer .right, #header .right {
+  position: absolute;
+  right: 0;
+  display: block;
+  padding: 0 8px;
+}
+
+/* main */
+
+body > section {
+  max-width: 960px;
+  margin: 50px auto;
+  font-size: 16px;
+}
+
+.empty {
+  color: #DDDDDD;
+  font-size: 5em;
+  font-weight: bold;
+  margin: 50px 0;
+  text-align: center;
+}
