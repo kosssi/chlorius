@@ -22,7 +22,8 @@
 
         "liip/imagine-bundle": "*",
         "friendsofsymfony/user-bundle": "*",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "leafo/lessphp": "0.3.8"
     },
     "scripts": {
         "post-install-cmd": [
