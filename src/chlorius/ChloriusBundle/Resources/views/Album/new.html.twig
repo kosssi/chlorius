@@ -2,12 +2,14 @@
 
 {% block smallTitle %}{{ 'Create album'|trans }}{% endblock %}
 
-{% block main %}
-    <h1>Create album</h1>
+{% block section %}
+    <section class="content" id="album-new">
+        <h1>Create album</h1>
 
-    <form action="{{ path('chlorius_album_new', {'username': username}) }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
+        <form action="{{ path('chlorius_album_new', {'username': username}) }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
 
-        <input type="submit" value="Create"/>
-    </form>
+            <input type="submit" value="Create"/>
+        </form>
+    </section>
 {% endblock %}

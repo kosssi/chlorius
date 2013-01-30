@@ -73,30 +73,25 @@ class AlbumController extends Controller
 
     /**
      * @Secure(roles="ROLE_USER")
-     * @Route("/{albumId}/remove", name="chlorius_album_remove")
+     * @Route("/{slug}/remove", name="chlorius_album_remove")
+     * @ParamConverter("album", class="ChloriusBundle:Album", options={"slug" = "slug"})
      * @Template()
      */
-    public function removeAction(User $user, $albumId)
+    public function removeAction(User $user, Album $album)
     {
         $em = $this->getDoctrine()->getManager();
-        $album = $em->getRepository('ChloriusBundle:Album')->find($albumId);
+        $em->remove($album);
+        $em->flush();
 
-        if ($album) {
-            $em->remove($album);
-            $em->flush();
-
-            $this->get('session')->setFlash('success', 'L\'album a été correctement supprimé.');
-        } else {
-            $this->get('session')->setFlash('error', 'No album found for id ' . $albumId);
-        }
+        $this->get('session')->setFlash('success', 'L\'album a été correctement supprimé.');
 
         return $this->redirect($this->generateUrl('chlorius_album_index', array('username' => $user->getUsername())));
     }
 
     /**
      * @Secure(roles="ROLE_USER")
-     * @Route("/{albumId}/{albumName}", name="chlorius_album_show")
-     * @ParamConverter("album", class="ChloriusBundle:Album", options={"id" = "albumId", "name" = "albumName"})
+     * @Route("/{slug}", name="chlorius_album_show")
+     * @ParamConverter("album", class="ChloriusBundle:Album", options={"slug" = "slug"})
      * @Template()
      */
     public function showAction(User $user, Album $album)

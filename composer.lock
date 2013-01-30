@@ -1,5 +1,5 @@
 {
-    "hash": "6b9534f9f05cc65e7ebb21e34871e79b",
+    "hash": "8c7c1abca1951ac0bc348ee14e9230e1",
     "packages": [
         {
             "name": "doctrine/common",
@@ -439,6 +439,75 @@
             ]
         },
         {
+            "name": "gedmo/doctrine-extensions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
+                "reference": "5ecdc7dd8f4afe8eca7c94725e20995e914f7ff5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/l3pp4rd/DoctrineExtensions/archive/5ecdc7dd8f4afe8eca7c94725e20995e914f7ff5.zip",
+                "reference": "5ecdc7dd8f4afe8eca7c94725e20995e914f7ff5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "doctrine/common": ">=2.2,<2.5-dev"
+            },
+            "require-dev": {
+                "doctrine/mongodb": ">=1.0.0-BETA1",
+                "doctrine/mongodb-odm": ">=1.0.0-BETA6",
+                "doctrine/orm": ">=2.2",
+                "doctrine/dbal": ">=2.2",
+                "symfony/yaml": "2.*"
+            },
+            "suggest": {
+                "doctrine/orm": ">=2.2",
+                "doctrine/dbal": ">=2.2",
+                "doctrine/mongodb": ">=1.0.0",
+                "doctrine/mongodb-odm": ">=1.0.0-BETA7"
+            },
+            "time": "2013-01-30 04:49:23",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Gedmo": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gediminas Morkevicius",
+                    "email": "gediminas.morkevicius@gmail.com"
+                }
+            ],
+            "description": "Doctrine2 behavioral extensions",
+            "homepage": "http://gediminasm.org/",
+            "keywords": [
+                "tree",
+                "behaviors",
+                "doctrine2",
+                "extensions",
+                "gedmo",
+                "sluggable",
+                "loggable",
+                "translatable",
+                "nestedset",
+                "sortable",
+                "timestampable"
+            ]
+        },
+        {
             "name": "imagine/Imagine",
             "version": "v0.3.0",
             "source": {
@@ -778,6 +847,136 @@
                 "security",
                 "secure",
                 "expression"
+            ]
+        },
+        {
+            "name": "knplabs/gaufrette",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/Gaufrette",
+                "reference": "v0.1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/KnpLabs/Gaufrette/archive/v0.1.4.zip",
+                "reference": "v0.1.4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "rackspace/php-cloudfiles": "*",
+                "doctrine/dbal": ">=2.3",
+                "amazonwebservices/aws-sdk-for-php": "1.5.*",
+                "dropbox-php/dropbox-php": "*",
+                "phpspec/phpspec2": "1.0.*",
+                "herzult/php-ssh": "*"
+            },
+            "suggest": {
+                "knplabs/knp-gaufrette-bundle": "*",
+                "ext-curl": "*",
+                "ext-mbstring": "*",
+                "ext-mongo": "*",
+                "dropbox-php/dropbox-php": "to use the Dropbox adapter",
+                "amazonwebservices/aws-sdk-for-php": "to use the Amazon S3 adapter",
+                "doctrine/dbal": "to use the Doctrine DBAL adapter",
+                "ext-zip": "to use the Zip adapter",
+                "ext-apc": "to use the APC adapter"
+            },
+            "time": "2013-01-25 08:51:55",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Gaufrette": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "The contributors",
+                    "homepage": "http://github.com/knplabs/Gaufrette/contributors"
+                },
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                }
+            ],
+            "description": "PHP5 library that provides a filesystem abstraction layer",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "media",
+                "file",
+                "filesystem",
+                "abstraction"
+            ]
+        },
+        {
+            "name": "knplabs/knp-gaufrette-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/GaufretteBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpGaufretteBundle",
+                "reference": "c260b10a0b472a7dcc32e0068b7d151db4f14f8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/KnpLabs/KnpGaufretteBundle/archive/c260b10a0b472a7dcc32e0068b7d151db4f14f8a.zip",
+                "reference": "c260b10a0b472a7dcc32e0068b7d151db4f14f8a",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": "2.*",
+                "knplabs/gaufrette": "0.2.*@dev"
+            },
+            "require-dev": {
+                "symfony/yaml": "2.*",
+                "symfony/console": "2.*"
+            },
+            "time": "2013-01-30 11:47:06",
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\GaufretteBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Hérault",
+                    "email": "antoine.herault@gmail.com",
+                    "homepage": "https://github.com/Herzult"
+                },
+                {
+                    "name": "The contributors",
+                    "homepage": "https://github.com/knplabs/KnpGaufretteBundle/contributors"
+                }
+            ],
+            "description": "Allows to easily use the Gaufrette library in a Symfony project",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "media",
+                "file",
+                "filesystem",
+                "abstraction"
             ]
         },
         {
@@ -1123,6 +1322,68 @@
                 }
             ],
             "description": "This bundle generates code for you"
+        },
+        {
+            "name": "stof/doctrine-extensions-bundle",
+            "version": "dev-master",
+            "target-dir": "Stof/DoctrineExtensionsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stof/StofDoctrineExtensionsBundle",
+                "reference": "4a17550d8b101c5aafc56c9950149aa189b8402d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/stof/StofDoctrineExtensionsBundle/archive/4a17550d8b101c5aafc56c9950149aa189b8402d.zip",
+                "reference": "4a17550d8b101c5aafc56c9950149aa189b8402d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.1,<2.3-dev",
+                "gedmo/doctrine-extensions": "2.3.*"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "*",
+                "doctrine/mongodb-odm-bundle": "2.1.*"
+            },
+            "time": "2012-12-13 17:58:07",
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Stof\\DoctrineExtensionsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                }
+            ],
+            "description": "Integration of the gedmo/doctrine-extensions with Symfony2",
+            "homepage": "https://github.com/stof/StofDoctrineExtensionsBundle",
+            "keywords": [
+                "tree",
+                "behaviors",
+                "doctrine2",
+                "extensions",
+                "gedmo",
+                "sluggable",
+                "loggable",
+                "translatable",
+                "nestedset",
+                "sortable",
+                "timestampable"
+            ]
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1522,6 +1783,64 @@
             "keywords": [
                 "templating"
             ]
+        },
+        {
+            "name": "vich/uploader-bundle",
+            "version": "dev-master",
+            "target-dir": "Vich/UploaderBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dustin10/VichUploaderBundle",
+                "reference": "v0.8.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/dustin10/VichUploaderBundle/archive/v0.8.0.zip",
+                "reference": "v0.8.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.0,<2.3-dev"
+            },
+            "require-dev": {
+                "twig/twig": "@stable",
+                "doctrine/orm": "@stable",
+                "doctrine/common": "@stable",
+                "doctrine/dbal": "@stable",
+                "doctrine/mongodb": "dev-master",
+                "doctrine/mongodb-odm": "dev-master",
+                "knplabs/knp-gaufrette-bundle": "0.2.*"
+            },
+            "suggest": {
+                "symfony/doctrine-bundle": "*",
+                "symfony/mongodb-odm-bundle": "*",
+                "knplabs/knp-gaufrette-bundle": "*"
+            },
+            "time": "2013-01-08 23:17:24",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Vich\\UploaderBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dustin Dobervich",
+                    "email": "ddobervich@gmail.com",
+                    "homepage": "http://www.dobervich.com"
+                }
+            ],
+            "description": "Ease file uploads attached to entities",
+            "homepage": "https://github.com/dustin10/VichUploaderBundle",
+            "keywords": [
+                "upload",
+                "file uploads"
+            ]
         }
     ],
     "packages-dev": null,
@@ -1532,6 +1851,9 @@
     "stability-flags": {
         "twig/extensions": 20,
         "kriswallsmith/assetic": 20,
-        "doctrine/doctrine-fixtures-bundle": 20
+        "stof/doctrine-extensions-bundle": 20,
+        "doctrine/doctrine-fixtures-bundle": 20,
+        "vich/uploader-bundle": 20,
+        "knplabs/knp-gaufrette-bundle": 20
     }
 }

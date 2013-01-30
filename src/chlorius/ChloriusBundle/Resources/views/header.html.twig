@@ -7,7 +7,7 @@
                     {{ username }} albums
                 </a>
                 {% if app.request.get('_route') == 'chlorius_album_show' %}
-                    <a href="{{ path('chlorius_album_show', {'username': username, 'albumId': album.id, 'albumName': album.name}) }}" class="selected">
+                    <a href="{{ path('chlorius_album_show', {'username': username, 'slug': album.slug}) }}" class="selected">
                         <i class="icon-folder"></i>
                         {{ album.name }}
                     </a>

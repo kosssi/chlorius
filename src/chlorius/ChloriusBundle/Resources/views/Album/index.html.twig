@@ -8,10 +8,10 @@
     <ul>
         {% for album in albums %}
             <li>
-                <a href="{{ path('chlorius_album_show', {'username': username, 'albumId': album.id, 'albumName': album.name}) }}">{{ album.name }}</a>
+                <a href="{{ path('chlorius_album_show', {'username': username, 'slug': album.slug}) }}">{{ album.name }}</a>
                 <span>( {{ album.date|date("d/m/Y") }} )</span>
                 {% if app.user.username == username %}
-                    <a href="{{ path('chlorius_album_remove', {'username': username, 'albumId': album.id}) }}">Delete</a>
+                    <a href="{{ path('chlorius_album_remove', {'username': username, 'slug': album.slug}) }}">Delete</a>
                 {% endif %}
             </li>
         {% else %}

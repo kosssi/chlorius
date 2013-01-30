@@ -3,6 +3,7 @@
 namespace chlorius\ChloriusBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -39,6 +40,12 @@ class Album
      * @ORM\Column(type="date")
      */
     protected $date;
+
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=64, unique=true)
+     */
+    private $slug;
 
     /**
      * Get id
@@ -140,5 +147,28 @@ class Album
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Album
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

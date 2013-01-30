@@ -92,3 +92,17 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: chlorius\ChloriusBundle\Entity\User
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_image:
+            upload_destination: %kernel.root_dir%/../web/images/products
+            delete_on_remove: true
+            inject_on_load: true
+
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            sluggable: true
